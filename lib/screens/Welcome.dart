@@ -55,7 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         ),
       ),
       body: isload
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Padding(
               padding: EdgeInsets.only(left: screenWidth * 0.04),
               child: SingleChildScrollView(
@@ -125,7 +125,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     if (page == 1 && page2 != 2)
                       ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: schema!.fields![0].schema!.options!.length,
                           itemBuilder: (context, index) {
@@ -135,7 +135,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 height: screenHeight * 0.08,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 1, color: Colors.black)),
+                                        width: 1,
+                                        color: schema!.fields![0].schema!
+                                                    .options![index].value ==
+                                                selectRadio0
+                                            ? Colors.orange
+                                            : Colors.black)),
                                 child: Row(
                                   children: [
                                     Radio(
@@ -160,10 +165,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                               .key ??
                                           "",
                                       style: GoogleFonts.poppins(
-                                          textStyle: const TextStyle(
+                                          textStyle: TextStyle(
                                               fontSize: 19,
                                               fontWeight: FontWeight.w600,
-                                              color: Colors.orange)),
+                                              color: schema!
+                                                          .fields![0]
+                                                          .schema!
+                                                          .options![index]
+                                                          .value ==
+                                                      selectRadio0
+                                                  ? Colors.orange
+                                                  : Colors.black)),
                                     ),
                                   ],
                                 ),
@@ -186,7 +198,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     if (page == 2)
                       ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: schema!.fields![1].schema!.options!.length,
                           itemBuilder: (context, index) {
@@ -196,7 +208,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 height: screenHeight * 0.08,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 1, color: Colors.black)),
+                                        width: 1,
+                                        color: schema!.fields![1].schema!
+                                                    .options![index].value ==
+                                                selectRadio1
+                                            ? Colors.orange
+                                            : Colors.black)),
                                 child: Row(
                                   children: [
                                     Radio(
@@ -223,10 +240,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                             "",
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.poppins(
-                                            textStyle: const TextStyle(
+                                            textStyle: TextStyle(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w600,
-                                                color: Colors.orange)),
+                                                color: schema!
+                                                            .fields![1]
+                                                            .schema!
+                                                            .options![index]
+                                                            .value ==
+                                                        selectRadio1
+                                                    ? Colors.orange
+                                                    : Colors.black)),
                                       ),
                                     ),
                                   ],
@@ -250,7 +274,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     if (page == 3)
                       ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: schema!.fields![2].schema!.fields!.length,
                           itemBuilder: (context, index) {
@@ -260,7 +284,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 height: screenHeight * 0.08,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 1, color: Colors.black)),
+                                        width: 1,
+                                        color: schema!
+                                                    .fields![2]
+                                                    .schema!
+                                                    .fields![index]
+                                                    .schema!
+                                                    .label ==
+                                                selectRadio2
+                                            ? Colors.orange
+                                            : Colors.black)),
                                 child: Row(
                                   children: [
                                     Radio(
@@ -288,10 +321,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                             "",
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.poppins(
-                                            textStyle: const TextStyle(
+                                            textStyle: TextStyle(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w600,
-                                                color: Colors.orange)),
+                                                color: schema!
+                                                            .fields![2]
+                                                            .schema!
+                                                            .fields![index]
+                                                            .schema!
+                                                            .label ==
+                                                        selectRadio2
+                                                    ? Colors.orange
+                                                    : Colors.black)),
                                       ),
                                     ),
                                   ],
@@ -317,7 +358,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     if (page == 4)
                       ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: schema!.fields![4].schema!.fields![0]
                               .schema!.options!.length,
@@ -328,7 +369,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 height: screenHeight * 0.08,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 1, color: Colors.black)),
+                                        width: 1,
+                                        color: schema!
+                                                    .fields![4]
+                                                    .schema!
+                                                    .fields![0]
+                                                    .schema!
+                                                    .options![index]
+                                                    .value ==
+                                                selectRadio4
+                                            ? Colors.orange
+                                            : Colors.black)),
                                 child: Row(
                                   children: [
                                     Radio(
@@ -365,10 +416,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                             "",
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.poppins(
-                                            textStyle: const TextStyle(
+                                            textStyle: TextStyle(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w600,
-                                                color: Colors.orange)),
+                                                color: schema!
+                                                            .fields![4]
+                                                            .schema!
+                                                            .fields![0]
+                                                            .schema!
+                                                            .options![index]
+                                                            .value ==
+                                                        selectRadio4
+                                                    ? Colors.orange
+                                                    : Colors.black)),
                                       ),
                                     ),
                                   ],
@@ -394,7 +454,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     if (page == 5)
                       ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: schema!.fields![4].schema!.fields![1]
                               .schema!.options!.length,
@@ -405,7 +465,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 height: screenHeight * 0.08,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 1, color: Colors.black)),
+                                        width: 1,
+                                        color: schema!
+                                                    .fields![4]
+                                                    .schema!
+                                                    .fields![1]
+                                                    .schema!
+                                                    .options![index]
+                                                    .value ==
+                                                selectRadio5
+                                            ? Colors.orange
+                                            : Colors.black)),
                                 child: Row(
                                   children: [
                                     Radio(
@@ -442,10 +512,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                             "",
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.poppins(
-                                            textStyle: const TextStyle(
+                                            textStyle: TextStyle(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w600,
-                                                color: Colors.orange)),
+                                                color: schema!
+                                                            .fields![4]
+                                                            .schema!
+                                                            .fields![1]
+                                                            .schema!
+                                                            .options![index]
+                                                            .value ==
+                                                        selectRadio5
+                                                    ? Colors.orange
+                                                    : Colors.black)),
                                       ),
                                     ),
                                   ],
@@ -470,7 +549,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     if (page2 == 2)
                       ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: schema!.fields![3].schema!.options!.length,
                           itemBuilder: (context, index) {
@@ -480,7 +559,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 height: screenHeight * 0.08,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 1, color: Colors.black)),
+                                        width: 1,
+                                        color: schema!.fields![3].schema!
+                                                    .options![index].value ==
+                                                selectRadio3
+                                            ? Colors.orange
+                                            : Colors.black)),
                                 child: Row(
                                   children: [
                                     Radio(
@@ -507,10 +591,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                             "",
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.poppins(
-                                            textStyle: const TextStyle(
+                                            textStyle: TextStyle(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w600,
-                                                color: Colors.orange)),
+                                                color: schema!
+                                                            .fields![3]
+                                                            .schema!
+                                                            .options![index]
+                                                            .value ==
+                                                        selectRadio3
+                                                    ? Colors.orange
+                                                    : Colors.black)),
                                       ),
                                     ),
                                   ],
@@ -527,177 +618,178 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                if (page != 1)
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        if (selectRadio0 != "Balance transfer & Top-up" &&
-                            valuebar! != 2)
-                          page--;
-                        else {
-                          valuebar = valuebar! - 10;
-                        }
-                        // if (selectRadio0 == 'Balance transfer & Top-up')
-                        //   valuebar = valuebar! - 6;
-                        // if (valuebar! != 2) valuebar = valuebar! - 2;
-                      });
-                    },
-                    child: Icon(
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  if (selectRadio0 != "Balance transfer & Top-up" &&
+                      valuebar! != 2)
+                    page--;
+                  else {
+                    valuebar = valuebar! - 10;
+                  }
+                  // if (selectRadio0 == 'Balance transfer & Top-up')
+                  //   valuebar = valuebar! - 6;
+                  // if (valuebar! != 2) valuebar = valuebar! - 2;
+                });
+              },
+              child: Row(
+                children: [
+                  if (page != 1)
+                    Icon(
                       Icons.arrow_back_ios,
                       size: screenWidth * 0.07,
                     ),
-                  ),
-                if (page != 1)
-                  Text(
-                    "Back",
-                    style: GoogleFonts.poppins(
-                        textStyle: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black)),
-                  ),
-              ],
+                  if (page != 1)
+                    Text(
+                      "Back",
+                      style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black)),
+                    ),
+                ],
+              ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.circular(30)),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: GestureDetector(
-                    onTap: () {
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  if (selectRadio0 != "Balance transfer & Top-up") {
+                    if (page == 1) {
+                      if (selectRadio0 != null && selectRadio0 != '') {
+                        setState(() {
+                          Storedata.qustions!
+                              .add(schema!.fields![0].schema!.label ?? "");
+                          Storedata.asnwer!.add(selectRadio0.toString());
+                          page++;
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Select Any One")));
+                      }
+                    } else if (page == 2) {
+                      if (selectRadio1 != null && selectRadio1 != '') {
+                        setState(() {
+                          Storedata.qustions!
+                              .add(schema!.fields![1].schema!.label ?? "");
+                          Storedata.asnwer!.add(selectRadio1.toString());
+                          page++;
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Select Any One")));
+                      }
+                    } else if (page == 3) {
+                      if (selectRadio2 != null && selectRadio2 != '') {
+                        setState(() {
+                          Storedata.qustions!
+                              .add(schema!.fields![2].schema!.label ?? "");
+                          Storedata.asnwer!.add(selectRadio2.toString());
+                          page++;
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Select Any One")));
+                      }
+                    } else if (page == 4) {
+                      if (selectRadio4 != null && selectRadio4 != '') {
+                        setState(() {
+                          Storedata.qustions!.add(schema!.fields![4].schema!
+                                  .fields![0].schema!.label ??
+                              "");
+                          Storedata.asnwer!.add(selectRadio4.toString());
+                          page++;
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Select Any One")));
+                      }
+                    } else if (page == 5) {
+                      if (selectRadio5 != null && selectRadio5 != '') {
+                        setState(() {
+                          Storedata.qustions!.add(schema!.fields![4].schema!
+                                  .fields![1].schema!.label ??
+                              "");
+                          Storedata.asnwer!.add(selectRadio5.toString());
+                          page++;
+                        });
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const ShowData();
+                            },
+                          ),
+                          (route) => true,
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Select Any One")));
+                      }
+                    } else if (page2 == 2) {
+                      if (selectRadio3 != null && selectRadio3 != '') {
+                        setState(() {
+                          Storedata.qustions!
+                              .add(schema!.fields![3].schema!.label ?? "");
+                          Storedata.asnwer!.add(selectRadio3.toString());
+                        });
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const ShowData();
+                            },
+                          ),
+                          (route) => true,
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Select Any One")));
+                      }
+                    } else {
+                      return;
+                    }
+                  } else {
+                    if (page2 == 1) {
                       setState(() {
-                        if (selectRadio0 != "Balance transfer & Top-up") {
-                          if (page == 1) {
-                            if (selectRadio0 != null && selectRadio0 != '') {
-                              setState(() {
-                                Storedata.qustions!.add(
-                                    schema!.fields![0].schema!.label ?? "");
-                                Storedata.asnwer!.add(selectRadio0.toString());
-                                page++;
-                              });
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Select Any One")));
-                            }
-                          } else if (page == 2) {
-                            if (selectRadio1 != null && selectRadio1 != '') {
-                              setState(() {
-                                Storedata.qustions!.add(
-                                    schema!.fields![1].schema!.label ?? "");
-                                Storedata.asnwer!.add(selectRadio1.toString());
-                                page++;
-                              });
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Select Any One")));
-                            }
-                          } else if (page == 3) {
-                            if (selectRadio2 != null && selectRadio2 != '') {
-                              setState(() {
-                                Storedata.qustions!.add(
-                                    schema!.fields![2].schema!.label ?? "");
-                                Storedata.asnwer!.add(selectRadio2.toString());
-                                page++;
-                              });
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Select Any One")));
-                            }
-                          } else if (page == 4) {
-                            if (selectRadio4 != null && selectRadio4 != '') {
-                              setState(() {
-                                Storedata.qustions!.add(schema!.fields![4]
-                                        .schema!.fields![0].schema!.label ??
-                                    "");
-                                Storedata.asnwer!.add(selectRadio4.toString());
-                                page++;
-                              });
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Select Any One")));
-                            }
-                          } else if (page == 5) {
-                            if (selectRadio5 != null && selectRadio5 != '') {
-                              setState(() {
-                                Storedata.qustions!.add(schema!.fields![4]
-                                        .schema!.fields![1].schema!.label ??
-                                    "");
-                                Storedata.asnwer!.add(selectRadio5.toString());
-                                page++;
-                              });
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return ShowData();
-                                  },
-                                ),
-                                (route) => true,
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Select Any One")));
-                            }
-                          } else if (page2 == 2) {
-                            if (selectRadio3 != null && selectRadio3 != '') {
-                              setState(() {
-                                Storedata.qustions!.add(
-                                    schema!.fields![3].schema!.label ?? "");
-                                Storedata.asnwer!.add(selectRadio3.toString());
-                              });
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return ShowData();
-                                  },
-                                ),
-                                (route) => true,
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Select Any One")));
-                            }
-                          } else {
-                            return;
-                          }
-                        } else {
-                          if (page2 == 1) {
-                            setState(() {
-                              Storedata.qustions!
-                                  .add(schema!.fields![0].schema!.label ?? "");
-                              Storedata.asnwer!.add(selectRadio0.toString());
-                              page2++;
-                            });
-                          } else {
-                            if (selectRadio3 != null && selectRadio3 != '') {
-                              setState(() {
-                                Storedata.qustions!.add(
-                                    schema!.fields![3].schema!.label ?? "");
-                                Storedata.asnwer!.add(selectRadio3.toString());
-                              });
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return ShowData();
-                                  },
-                                ),
-                                (route) => true,
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Select Any One")));
-                            }
-                          }
-                        }
-                        print(valuebar);
+                        Storedata.qustions!
+                            .add(schema!.fields![0].schema!.label ?? "");
+                        Storedata.asnwer!.add(selectRadio0.toString());
+                        page2++;
                       });
-                    },
-                    child: Icon(Icons.arrow_forward_ios_sharp)),
+                    } else {
+                      if (selectRadio3 != null && selectRadio3 != '') {
+                        setState(() {
+                          Storedata.qustions!
+                              .add(schema!.fields![3].schema!.label ?? "");
+                          Storedata.asnwer!.add(selectRadio3.toString());
+                        });
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const ShowData();
+                            },
+                          ),
+                          (route) => true,
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Select Any One")));
+                      }
+                    }
+                  }
+                  print(valuebar);
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.circular(30)),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Icon(Icons.arrow_forward_ios_sharp),
+                ),
               ),
             )
           ],
