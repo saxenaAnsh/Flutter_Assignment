@@ -799,7 +799,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 
   getTreatmentPatientList() async {
-    final res = await http.get(
+    try {
+      final res = await http.get(
       Uri.parse("${ApiData.ApiUrl}"),
     );
     final int statuscode = res.statusCode;
@@ -813,5 +814,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         isload = false;
       });
     }
+    else {
+      setState(() {
+        isload = false;
+      });
+    }
+    } catch (e) {
+      rethrow;
+    }
+    
   }
 }
